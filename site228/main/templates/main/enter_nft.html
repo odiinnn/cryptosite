@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{% static 'main/js/add_nft.js' %}"></script>
+
+</head>
+<body>
+  <div>
+	<h1>Transfer</h1>
+	<p>amount:</p><input id="amount" type="text"></input>
+    	<button class="send_nft" value="">send</button>
+	<div id="status"></div>
+    <div id="asdf"></div>
+  </div>
+
+</body>
+
+<script>
+     window.addEventListener('load', async () => {
+	console.log(web3.version)
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          await ethereum.enable();
+	  sendTransaction()
+
+        } catch (err) {
+	console.log('Payment failed', err)
+          $('#status').html('User denied account access', err)
+        }
+      } else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider)
+	sendTransaction()
+
+      } else {
+ 	console.log('Payment failed', err)
+        $('#status').html('No Metamask (or other Web3 Provider) installed')
+      }
+    })
+
+
+const sendTransaction = () => {
+      $('.send_money').click(() => {
+
+        const contract_address = '0x6629a20A106743f39Ad6179c0943d8a169d9DEa0'
+        const main_address = '0x009d976b070eAbC3686B277a5F74eBe93E970FbA'
+
+
+		abi =
+
+
+		const amount = document.getElementById("amount").value;
+		console.log(amount);
+
+
+
+const token = new web3.eth.Contract(abi, contract_address)
+
+
+	asdf()
+	async function asdf ()   {
+
+
+     	let  acct = (await  web3.eth.getAccounts ())[0];
+
+	amount_s99 =  web3.utils.toWei(amount, 'ether')
+
+
+	token.methods.transfer(
+        main_address, amount_s99).send({from: acct}, function (err, res) {
+
+        if  (err) {
+
+            console.log('Payment failed', err)
+            $('#status').html('Payment failed')
+          } else {
+            async function loadwallet ()   {
+                        let  acct = (await  web3.eth.getAccounts ())[0];
+                        console.log(acct)
+                        $.ajax({
+                                url:'/add_amount',
+                                type: "GET",
+                                data: {amount : amount},
+                                success: function(data) {
+                                alert(acct);
+
+                                },
+                                failure: function(data) {
+                                alert('Got an error dude');
+                                }
+                        });
+            }
+            loadwallet()
+            console.log('Your balance', res)
+            $('#status').html('Payment successful')
+          }
+        })
+
+}
+
+      })
+}
+
+</script>
+
+</html>

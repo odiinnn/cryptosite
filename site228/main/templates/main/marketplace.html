@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% csrf_token %}
+{% block title %}
+Market
+{% endblock %}
+
+{% block content %}
+
+<div class="zagolovok">
+    <p class="zagolovok">Marketplace</p>
+</div>
+  <h5>
+    <div class="row_mode">
+      {% for el in buffer %}
+      <div class="sorting">
+        <div class="namee">
+
+
+          <p>{{ el.item.title }}</p>
+          <p><img src="{{ el.item.image.url }}" style="width: 200px; height: 200px; border: 2px solid #f1f1f1;"><br></p>
+          <a href="buy?name={{el.id}}" type="submit" class="floating-button">{{ el.price }}</a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+</h5>
+{% endblock %}
+
+

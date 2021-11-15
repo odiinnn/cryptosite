@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Gratz with buying
+{% endblock %}
+
+{% block content %}
+    <h1>Gratz with buying</h1>
+    <p>Gratz with buying</p>
+    <form method="post">
+        {% csrf_token %}
+      <a href="home" type="submit" class="floating-button">Home</a>
+
+    </form>
+{% endblock %}
+
+

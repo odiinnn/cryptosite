@@ -1,0 +1,180 @@
+
+
+{% extends 'main/base.html' %}
+{% load static %}
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{% static 'main/js/profile.js' %}"></script>
+
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="zagolovok">
+    <p>{{ request.user }}</p>
+    {% csrf_token %}
+
+
+            <p>Balance: {{ balance.balance }} S99</p>
+
+            <p>Yor wallet:</p>
+
+</div>
+<div class="zagolovok2">
+<div id="wallet"></div>
+<div id="fake"></div>
+    </div>
+<input type="text" hidden id="iputprikol" style="border: 2px solid #33006E; border-radius: 25px; width: 347px;
+    height: 50px; margin-left: 12%; margin-top:5%; margin-bottom: 3%;  padding-left:45px;" placeholder="S99">
+<a onclick="pop_up_balance()" class="floating-button" id="pop_up_balance">Top up balance</a>
+
+                <h5>
+                    <form method="POST">
+<!--                        <div id="row_mode0">-->
+
+<!--                        <div id="sorting0">-->
+
+                        {% csrf_token %}
+                            <div class="row_mode">
+
+                                {% for el in items %}
+                                <div class="sorting">
+
+<!--                            <div id="name{{ el.item.id }}"></div>-->
+
+                                    <p id="description{{ el.id }}">There will be  </p>
+                                    <img id="image{{ el.id }}">
+                                    <p id="id{{ el.id }}">your NFT tokens</p>
+                                    <p id="amount{{ el.id }}">from your wallet</p>
+                                    <a id="link{{ el.id }}"></a>
+                                    <a onclick="sell_item({{ el.id }})" value="{{ el.id }}" class="floating-button">Upload</a>
+                                    <p id="status{{ el.id }}" hidden></p>
+                                </div>
+
+                                {% endfor %}
+
+                            </div>
+<!--                                    <div id="name0"></div>-->
+<!--                                    <p id="description0"></p>-->
+<!--                                    <img id="image0" >-->
+<!--                                    <p id="id0"></p>-->
+<!--                                    <a id="link0"></a>-->
+
+<!--                        <div id="sorting1">-->
+<!--                                    <div id="name1"></div>-->
+<!--                                    <p id="description1"></p>-->
+<!--                                    <img id="image1" >-->
+<!--                                    <p id="id1"></p>-->
+<!--                                    <a id="link1"></a>-->
+<!--                        </div>-->
+<!--                            <div id="sorting2">-->
+<!--                                    <div id="name2"></div>-->
+<!--                                    <p id="description2"></p>-->
+<!--                                    <img id="image2" >-->
+<!--                                    <p id="id2"></p>-->
+<!--                                    <a id="link2"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting3">-->
+<!--                                    <div id="name3"></div>-->
+<!--                                    <p id="description3"></p>-->
+<!--                                    <img id="image3" >-->
+<!--                                    <p id="id3"></p>-->
+<!--                                    <a id="link3"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting4">-->
+<!--                                        <div id="name4"></div>-->
+<!--                                    <p id="description4"></p>-->
+<!--                                    <img id="image4" >-->
+<!--                                    <p id="id4"></p>-->
+<!--                                    <a id="link4"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting5">-->
+<!--                                        <div id="name5"></div>-->
+<!--                                    <p id="description5"></p>-->
+<!--                                    <img id="image5" >-->
+<!--                                    <p id="id5"></p>-->
+<!--                                    <a id="link5"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting6">-->
+
+<!--                                        <div id="name6"></div>-->
+<!--                                    <p id="description6"></p>-->
+<!--                                    <img id="image6" >-->
+<!--                                    <p id="id6"></p>-->
+<!--                                    <a id="link6"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting7">-->
+<!--                                        <div id="name7"></div>-->
+<!--                                    <p id="description7"></p>-->
+<!--                                    <img id="image7" >-->
+<!--                                    <p id="id7"></p>-->
+<!--                                    <a id="link7"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting8">-->
+<!--                                        <div id="name8"></div>-->
+<!--                                    <p id="description8"></p>-->
+<!--                                    <img id="image8" >-->
+<!--                                    <p id="id8"></p>-->
+<!--                                    <a id="link8"></a>-->
+<!--                            </div>-->
+<!--                            <div id="sorting9">-->
+<!--                                        <div id="name9"></div>-->
+<!--                                    <p id="description9"></p>-->
+<!--                                    <img id="image9">-->
+<!--                                    <p id="id9"></p>-->
+<!--                                    <a id="link9"></a>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--</div>-->
+
+                        <a href="itemsforsale" type="submit" class="floating-button" style="margin-top:4%;">Items for sale</a>
+                        <div class="row_mode">
+
+
+
+
+
+                        {% for el in content  %}
+
+                        {% if el.check == 0 %}
+
+                        <div class="sorting">
+                            <div class="namee">
+                            <p>{{ el.item.title }}</p>
+                            <p>ID: {{ el.id }}</p>
+                            <p>{{ el.item.id }}</p>
+                            <p><img src="{{ el.item.image.url }}" style="width: 200px; height: 200px; border: 2px solid #f1f1f1;"></p>
+                            <a href="sell?name={{ el.id }}" type="submit" class="floating-button" value="{{ el.id }}">Sell {{ el.item.title }}</a>
+
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </div>
+                    </form>
+                </h5>
+            <ul>
+
+
+            </ul>
+
+
+{% endblock %}
+
+{% block name %}
+
+    {% for el in username %}
+        {{ el.title }}
+    {% endfor %}
+
+{% endblock %}
+
+
+
+

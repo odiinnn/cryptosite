@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{% static 'main/js/add_balance.js' %}"></script>
+
+</head>
+<body>
+  <div>
+	<h1>Transfer</h1>
+	<p>amount:</p><input id="amount" type="text"></input>
+    	<button class="send_money">send</button>
+	<div id="status"></div>
+    <div id="asdf"></div>
+  </div>
+
+</body>
+
+</html>

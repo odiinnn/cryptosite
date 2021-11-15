@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+{% block title %}
+Token Sale
+{% endblock %}
+
+{% block content %}
+{% for el in wallet %}
+<p>{{ el.wallet }}</p>
+{% endfor %}
+<a href="#" id="main">
+      <div id="okno">
+          <p class="nameee" id="status"></p>
+      </div>
+    </a>
+<div class="sorting1">
+    <div class="row_mode" style="font-size: 70px; margin-left: -10%;">
+    <p class="namee">Buy S99 Token</p>
+    </div>
+    <div class="row_mode">
+    <div class="sorting2" style="margin-left: -7%;">
+
+
+        <input type="text" style="border: 2px solid #33006E; border-radius: 25px; width: 347px;
+    height: 50px; margin-left: 12%; margin-top:5%; margin-bottom: 3%;  padding-left:45px;" placeholder="S99" oninput="myFunction()" id="buyTokens1">
+
+<!--text-align: center;-->
+
+            <div class="row_mode">
+        <img src="https://s99.info/static/admin/img/arrows.png" style="width: 50px;
+    height: 50px;">
+            </div>
+        <input type="text" style="border: 2px solid #33006E; border-radius: 25px; width: 347px;
+    height: 50px; margin-left: 12%; margin-top:3%; padding-left:45px;" placeholder="BNB" oninput="myFunction()" id="price1" readonly>
+        <a type="submit" class="floating-buttonnn" style="margin-left: 28%; margin-top:5%;" >BUY</a>
+        <div class="row_mode">
+        <div class="tylo">
+        <p class="namee" style="margin-top:5%; white-space: pre; margin-bottom:-2%;">Price: 1 S99 = </p>
+        <p id="pricec" class="namee" style="margin-top:5%; white-space: pre; margin-bottom:-2%;"></p>
+            <p class="namee" style="margin-top:5%; white-space: pre; margin-bottom:-2%;"> BNB</p>
+        </div>
+            </div>
+
+        </div>
+</div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block name %}
+
+    {% for el in username %}
+        {{ el.title }}
+    {% endfor %}
+
+{% endblock %}
+
+

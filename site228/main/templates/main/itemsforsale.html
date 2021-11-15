@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="zagolovok">
+    <p>{{ request.user }}</p>
+    {% csrf_token %}
+    <p>Items for sale:</p><br>
+</div>
+
+                <h5>
+                    <div class="row_mode">
+                        {% csrf_token %}
+
+                        {% for el in content  %}
+                        {% if el.check == 1 %}
+                        <div class="sorting">
+                            <div class="name2">
+
+                                <p>{{ el.item.title }}</p>
+                                <p>{{ el.id }}</p>
+                                <p>{{ el.item.id }}</p>
+                                <p><img src="{{ el.item.image.url }}" style="width: 200px; height: 200px;border: 2px solid #f1f1f1;"></p>
+                                <a href="get_back?name={{el.id}}" type="submit" class="floating-button1"> Remove from market </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </h5>
+            <ul>
+                <a href="profile" type="submit" class="floating-button">Your inventory</a>
+            </ul>
+<!--        </div>-->
+{% endblock %}
+
+{% block name %}
+
+    {% for el in username %}
+        {{ el.title }}
+    {% endfor %}
+
+{% endblock %}
+

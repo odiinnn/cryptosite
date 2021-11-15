@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+О нас
+{% endblock %}
+
+{% block content %}
+    <h1>Продать {{ el.title }}</h1>
+    <p>Продать</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.price }}
+        <a href="home" type="submit" class="floating-button" value="1">Sell {{ el.title }}</a>
+
+    </form>
+{% endblock %}
+
+

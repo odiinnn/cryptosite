@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="namee">
+    <h1>Hi!</h1>
+</div>
+
+        <div class="namee">
+            <p>Hello World!</p>
+            
+
+            <div style="margin-top:7%">
+
+            <div class="tylo">
+            <image src="https://s99.info/static/admin/img/telegram.ico" style="width: 30px; height: 30px; margin-right: 6px; margin-bottom: 5px;"></image>
+            <p><a href="">Telegram</a></p>
+            </div>
+            <div class="tylo">
+                <image src="https://s99.info/static/admin/img/twitter.ico" style="width: 25px; height: 25px; margin-right: 10px; margin-bottom: 5px;"></image>
+                <p><a href="">Twitter</a></p>
+            </div>
+            <div class="tylo">
+            <image src="https://s99.info/static/admin/img/book.ico" style="width: 25px; height: 25px; margin-right: 10px; margin-bottom: 5px;"></image>
+            <p><a href="">White paper</a></p>
+            </div>
+                </div>
+
+        </div>
+
+
+
+{% endblock %}
+
+{% block name %}
+
+    {% for el in username %}
+        {{ el.title }}
+    {% endfor %}
+
+{% endblock %}
+
+

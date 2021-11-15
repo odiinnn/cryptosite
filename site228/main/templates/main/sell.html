@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+О нас
+{% endblock %}
+
+{% block content %}
+<!--    <h1>You  {{ form.item.title }}</h1>-->
+<div class="row_mode">
+    <div class="sorting">
+        <div class="name2">
+        <form method="post">
+    <p>Enter your price</p>
+
+        {% csrf_token %}
+        {{ form.price }}
+
+
+        <button type="submit" class="floating-button" value="1" style="margin-left: 28%;">Sell {{ form.item.title }}</button>
+
+                <div class="row_mode">
+                    <div class="tylo">
+                    <p id="price1234" class="namee" style="margin-top:5%; white-space: pre; margin-bottom:-2%;" hidden>You will receive </p>
+        <p class="namee" id="price123" style="margin-top:5%; white-space: pre; margin-bottom:-2%;"></p>
+                        <p id="price12345" class="namee" style="margin-top:5%; white-space: pre; margin-bottom:-2%;" hidden> S99</p>
+                        </div>
+                </div>
+
+    </form>
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ streamer.title }}
+{% endblock %}
+
+{% block content %}
+    <ul>
+
+
+    {% if streamer.image %}
+<!--<div class="name">-->
+<div class="sorting">
+    <div class="row_mode">
+
+        <div class="sorting1">
+
+            <h3>{{ streamer.title }}</h3>
+            <a href="https://www.twitch.tv/norfl_"><img src="{{ streamer.image.url }}" style="width: 210px; height: 210px;"></a>
+            <a href="add1" type="submit" class="floating-button">Join</a>
+
+        </div>
+        <div class="col">
+            <p>Description:</p>
+            <p>
+Hey! To receive a reward, you just need to click the "Join" button. Then enter the stream by clicking on the image. You must be in the stream to receive the rewards.</p>
+        </div>
+
+    </div>
+<!--</div>-->
+
+</div>
+        {% endif %}
+<!--            </div>-->
+    </ul>
+{% endblock %}
+

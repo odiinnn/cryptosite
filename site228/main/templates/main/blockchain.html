@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang=ru>
+<head>
+
+
+    {% load static %}
+
+<!--    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">-->
+
+</head>
+<body>
+    {% csrf_token %}
+
+    <p>{{ balance }}</p>
+    <p>{{ result }}</p>
+    <p>{{ totalSupply }}</p>
+    <p>{{ name }}</p>
+    <p>{{ symbol }}</p>
+    <p>{{ address }}</p>
+    <p>{{ qwer }}</p>
+    <a href="home" type="submit" class="floating-button">HOME</a>
+    <form method="get"><a href="" type="submit" class="floating-button">HOME</a></form>
+
+
+
+
+</body>
+</html>
